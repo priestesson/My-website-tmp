@@ -1,0 +1,15 @@
+p{
+	color: #b00b69; /*haha funny color*/
+	font-size: 50px;
+}
+body{
+	background-image: linear-gradient(90deg, red, blue);
+	background-size: 300%;
+	background-position: left;
+	animation: bg-animation 7s infinite;
+}
+@keyframes bg-animation{
+	0%{background-position: left;}
+	50%{background-position: right;}
+	100%{background-position: left;}
+}

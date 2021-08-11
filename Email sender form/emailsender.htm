@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Page Title</title>
+</head>
+<center>
+<p></p>
+<br>
+<p>
+</p>
+<br>
+<p></p>
+<br>
+<p></p>
+<br>
+<div class="Container">
+<h3>To:</h3>
+<input id="emailTo" class="input"><p></p>
+<div id="NewSender"></div>
+<h3>Subject:</h3>
+<input id="subject" class="input">
+<h3>Message:</h3>
+<input id="body" class="input"></p></p><br>
+<button id="send">Send</button><p></p>
+<button id="AddSender">Add Sender</button><p></p><br>
+</center>
+</div>
+<body>
+  <script src="https://smtpjs.com/v3/smtp.js"></script>
+  <script>
+  
+  var NewSender = document.getElementById("NewSender")
+  var body = document.getElementById('body');
+  var subject = document.getElementById('subject');
+  
+  var emailTo = document.getElementById("emailTo")
+  
+
+document.getElementById("send").addEventListener("click", function(){
+	
+	
+	Email.send({
+	  SecureToken: "61e09161-b4cc-45fe-9146-007cbbee33ec",
+	  From: "email2allCompany@gmail.com",
+	  To: emailTo.value,
+	  Subject: subject.value,
+	  Body: body.value,
+	}).then(
+	  error => alert(error),
+	
+	)
+	
+});
+
+const AddSender = document.getElementById("AddSender")
+
+
+
+AddSender.addEventListener("click", function(){
+	
+	NewSender.innerHTML = `<input id="emailTo2" class="input">`;
+	
+
+  var emailTo2 = document.getElementById("emailTo2")
+  
+  
+	
+})
+
+document.getElementById("send").addEventListener("click", function(){
+	
+	
+	Email.send({
+	  SecureToken: "61e09161-b4cc-45fe-9146-007cbbee33ec",
+	  From: "email2allCompany@gmail.com",
+	  To: emailTo,
+	  Subject: subject.value,
+	  Body: body.value,
+	}).then(
+	  error => alert(error),
+	
+	)
+	
+	Email.send({
+	  SecureToken: "61e09161-b4cc-45fe-9146-007cbbee33ec",
+	  From: "email2allCompany@gmail.com",
+	  To: emailTo2.value,
+	  Subject: subject.value,
+	  Body: body.value,
+	}).then(
+	  error => alert(error),
+	
+	)
+});
+
+
+  
+   
+	 
+  </script>
+</body>
+
+</html>

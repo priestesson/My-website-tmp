@@ -1,0 +1,220 @@
+ *,*::before, *::after {
+  padding: 0;
+  margin: 0 auto;
+  box-sizing: border-box;
+  transform-style: preserve-3d;
+}
+
+:root{
+ --deg:20px;
+}
+body {
+  background-color: #111;
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+  perspective: 800px;
+  perspective-origin: center calc(50% - 2.4em);
+  overflow: hidden;
+}
+
+.contain {
+  position: relative;
+  animation: rotate 62s infinite linear;
+  transform: scale(0.3); 
+}
+
+@keyframes rotate {
+  to { transform: scale(1) rotateY(360deg) ; }
+}
+.floor {
+  position: absolute;
+  width: 20em;
+  height: 20em;
+  background-color: #fff;
+  background-image:radial-gradient(#012a, #111 66%),url('https://5.imimg.com/data5/IL/CK/MY-43962592/floor-tile-500x500.jpg');
+  background-size: 20em, 10em;
+  transform: translate(-50%, -50%) rotateX(90deg) translateZ(-3em);
+}
+.floor::after {
+	content: '';
+	position: absolute;
+	top: 50%; left: 50%;
+	transform: translate(-50%, -50%);
+	width: 8.5em;
+	height: 4.5em;
+	background-color: #000;
+	filter: blur(0.3em);
+}
+
+.wood {
+  --width: 0;
+  --height: 0;
+  --depth: 0;
+  color: #3E2723;
+  position: absolute;
+  top: 0; 
+  left: 0;
+  width: var(--width);
+  height: var(--height);
+  transform: translate(-50%, -50%);
+
+}
+  .wood.root {
+	--width: 8em;
+	--height: 1em;
+	--depth: 4em;
+	transform: translate(-50%, calc(-50% + 2.5em));
+  }
+
+  .wood > * {
+	position: absolute;
+	box-shadow: 0 0 1em #0007 inset;
+	background-size: 5em;
+	background-color:#fff;
+	background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVdbNxxfF9MuaYTdvL8wjVdAtLMSDjYZcw1g&usqp=CAU');
+  }
+
+  .wood > .top {
+	width: var(--width);
+	height: var(--depth);
+	transform: translateY(-50%) rotateX(90deg);
+	background-color: lighten( #3E2723, 15%);
+	
+  }
+
+  .wood > .left {
+	width: var(--depth);
+	height: var(--height);
+	transform: translateX(-50%) rotateY(90deg);
+	background-color: lighten( #3E2723, 10%);
+  }
+
+  .wood > .right {
+	width: var(--depth);
+	height: var(--height);
+	right: 0;
+	transform: translateX(50%) rotateY(90deg);
+	background-color: darken( #3E2723, 10%);
+  }
+
+  .wood > .front {
+	width: var(--width);
+	height: var(--height);
+	transform: translateZ(calc(var(--depth) / 2));
+	background-color:  #3E2723;
+  }
+
+  .wood > .back {
+	width: var(--width);
+	height: var(--height);
+	transform: translateZ(calc(var(--depth) / -2));
+	background-color:  #3E2723;
+  }
+
+  
+.chair:nth-child(1) {
+  --width: 0;
+  --height: 0;
+  --depth: 0;
+  color: #3E2723;
+  position: absolute;
+  top: 0; 
+  left: 280px;
+  width: var(--width);
+  height: var(--height);
+  transform: translate(-50%, calc(-50% + 2.5em));
+
+}
+.chair:nth-child(2) {
+  --width: 0;
+  --height: 0;
+  --depth: 0;
+  color: #3E2723;
+  position: absolute;
+  top: 0px; 
+  left:  -280px;
+  width: var(--width);
+  height: var(--height);
+  transform: translate(-50%, calc(-50% + 2.5em));
+
+}
+.chair:nth-child(3) {
+  --width: 0;
+  --height: 0;
+  --depth: 0;
+  color: #3E2723;
+  position: absolute;
+  top: 0; 
+  left:0;
+  width: var(--width);
+  height: var(--height);
+ transform: translate(-50%, calc(-50% + 2.5em)) translateZ(-178px);
+
+}
+.chair:nth-child(4) {
+  --width: 0;
+  --height: 0;
+  --depth: 0;
+  color: #3E2723;
+  position: absolute;
+  top: 0; 
+  left: 0;
+  width: var(--width);
+  height: var(--height);
+ transform: translate(-50%, calc(-50% + 2.5em)) translateZ(178px);
+
+}
+.chair.root {
+	--width: 66px;
+	--height: 66px;
+	--depth: 75px;
+}
+  .chair > * {
+	position: absolute;
+	box-shadow: 0 0 1em #0007 inset;
+	background-size: 5em;
+	background-color:#fff;
+	background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSinfvvwqKqWOhyWEjszREJrSmEQ4rehtlKRg&usqp=CAU');
+
+  }
+
+  .chair > .top {
+	width: var(--width);
+	height: var(--depth);
+	transform: translateY(-50%) rotateX(90deg);
+	background-color: lighten( #3E2723, 15%);
+	
+  }
+
+  .chair > .left {
+	width: var(--depth);
+	height: var(--height);
+	transform: translateX(-50%) rotateY(90deg);
+	background-color: lighten( #3E2723, 10%);
+  }
+
+  .chair > .right {
+	width: var(--depth);
+	height: var(--height);
+	right: 0;
+	transform: translateX(50%) rotateY(90deg);
+	background-color: darken( #3E2723, 10%);
+  }
+
+  .chair > .front {
+	width: var(--width);
+	height: var(--height);
+	transform: translateZ(calc(var(--depth) / 2));
+	background-color:  #3E2723;
+  }
+
+  .chair > .back {
+	width: var(--width);
+	height: var(--height);
+	transform: translateZ(calc(var(--depth) / -2));
+	background-color:  #3E2723;
+  }
